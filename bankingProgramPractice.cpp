@@ -2,6 +2,7 @@
 // for precission include this header file
 #include <iomanip>
 
+
 void showBalance(double balance);
 double deposit();
 double withdraw(double balance);
@@ -41,7 +42,6 @@ int main()
 
         default:
             std::cout << "Invalid choice\n";
-            break;
         }
     } while (choice != 4);
 
@@ -67,5 +67,18 @@ double deposit(){
     }
 }
 double withdraw(double balance){
-    return 0;
+    double amount = 0;
+
+    std::cout << "Enter amount to be withdrawn: ";
+    std::cin >> amount;
+    if(amount > balance) {
+        std::cout << "Insufficient Funds\n";
+        return 0;
+    }
+    else if(amount < 0) {
+        std::cout << "That's not a valid amount\n";
+        return 0;
+    } else {
+        return amount;
+    }
 }
